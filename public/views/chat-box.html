@@ -1,0 +1,48 @@
+<style>
+.rcorners {
+    border: 2px solid #7C7C84;
+    width: 245px; 
+    border-radius: 18px;
+    padding: 5px; 
+    height:115px;
+}
+.daycol {
+  background-color: aliceblue;
+}
+.daycol:nth-child(2n+1) {
+    background-color:#e9e9e9
+}
+</style>
+<link rel="import" href="../bower_components/iron-autogrow-textarea/iron-autogrow-textarea.html">
+<link rel="import" href="../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../bower_components/iron-label/iron-label.html">
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="chat-box">
+  <template>
+   <template is="dom-repeat" items="{{chat-list}}">
+    <div class="rcorners daycol" style="margin-bottom: 5px; margin-top: 5px; margin-right:5px">
+<div class="pull-left" style="width:60px; margin-right: 5px;">
+<iron-image id="profileImage" style="width:75px; height:75px;" preload fade sizing="contain" src="{{item.image-src}}"></iron-image>
+</div>
+<div class="pull-left" style="width:165px; margin-left:15px">
+<iron-label style="font-weight: bold;font-size: 14px;">{{item.name}}</iron-label>
+<pr class="pull-left" style="font-size: 12px;overflow: auto; word-break: break-word; height: 100px">{{item.message}}</pr>
+</div>
+</div>
+</template>
+  </template>
+</dom-module>
+
+<script type="text/javascript">
+
+    Polymer({
+      is: 'chat-box',
+      properties:{
+        "chat-list":{
+        	type: Array
+        }
+      }
+    });
+
+</script>

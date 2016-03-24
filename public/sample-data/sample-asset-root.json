@@ -1,0 +1,30 @@
+[
+    {
+        "uri": "USPowerGen",
+        "classification": "parent",
+        "description": "US Power Gen",
+        "assetId": "US Power Gen",
+        "parent": null
+    },
+    {
+        "uri": "Europe&Africa",
+        "classification": "parent1",
+        "description": "Europe & Africa",
+        "assetId": "Europe & Africa",
+        "parent": null
+    },
+    {
+        "uri": "MiddleEast",
+        "classification": "parent2",
+        "description": "Middle East",
+        "assetId": "Middle East",
+        "parent": null
+    },
+    {
+        "uri": "Asia",
+        "classification": "parent3",
+        "description": "Asia",
+        "assetId": "Asia",
+        "parent": null
+    }
+]
