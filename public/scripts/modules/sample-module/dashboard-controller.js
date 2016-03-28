@@ -15,32 +15,146 @@ define(['angular', './sample-module'], function (angular, controllers) {
 
         // callback for when the Open button is clicked
         $scope.openContext = function (contextDetails) {
-
             // need to clean up the context details so it doesn't have the infinite parent/children cycle,
             // which causes problems later (can't interpolate: {{context}} TypeError: Converting circular structure to JSON)
             var newContext = angular.copy(contextDetails);
+            newContext.children = [];
             newContext.parent = [];
 
             $scope.context = newContext;
-
+            var selectedItemIdVal = newContext.id;
+            console.log(selectedItemIdVal);
+            
+            	    if (selectedItemIdVal == "USPowerGen"){
+            	    	var json = 
+            	    		 [{"lat":33.5995, "lng":-84.5485, "title":'Atlanta Service Center', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
+               	    	   {"lat":32.7825, "lng":-96.7768, "title":'Dallas Service Center', "WIP":24, "CIP":1234,"MajorFrame":"2F","MajorComp":"2C"},
+               	    	   {"lat":14.1205, "lng":79.2055, "title":'PMT', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
+               	    	   {"lat":44.8996, "lng":-68.6677, "title":'Bangor Service Center', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
+               	    	   {"lat":42.8142, "lng":-73.9396, "title":'Schenectady Service Center', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
+               	    	   {"lat":29.7604, "lng":-95.3698, "title":'Houston Oil & Gas Service Center', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"}
+               	    	   ];
+            	    } else if(selectedItemIdVal == "Europe&Africa"){
+            	    	var json = 
+            	    		[{"lat":51.5761, "lng":0.4887, "title":'Basildon Service Center', "WIP":777, "CIP":12,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	   {"lat":51.4648, "lng":0.1821, "title":'Dartford Service Center', "WIP":688, "CIP":789,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	   {"lat":47.1625, "lng":19.5033, "title":'Hungary Service Center', "WIP":8769, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	   {"lat":29.9476, "lng":78.1063, "title":'Turbine Blading Ltd', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	 	{"lat":50.8458, "lng":5.6872, "title":'Belfort Service Center', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"}
+            	  	    	   ];
+    	      			            
+            	    }else if (selectedItemIdVal == "MiddleEast"){
+            	    	var json = 
+            	    		[{"lat":26.399, "lng":50.1419, "title":'MEELSA', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"}
+             	    	   ];
+            	    } else if (selectedItemIdVal == "Asia"){
+            	    	var json = 
+            	    		  [{"lat":17.5931, "lng":78.4047, "title":'BHEL - GE Gas Turbine Services Pvt. Ltd', "WIP":2434, "CIP":456,"MajorFrame":"2F","MajorComp":"2C"},
+                	    	   {"lat":50.9172, "lng":6.6907, "title":'Keppel Service Center', "WIP":3543, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
+                	    	   {"lat":38.2376, "lng":-76.1269, "title":'PT Gents', "WIP":1234, "CIP":768,"MajorFrame":"2F","MajorComp":"1C"},
+                	    	   {"lat":43.4846, "lng":-91.1906, "title":'GEESA', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"10C"}
+                	    	   ];
+            	    } else {
+            	    	var json = 
+            	    		 [{"lat":33.5995, "lng":-84.5485, "title":'Atlanta Service Center', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":51.5761, "lng":0.4887, "title":'Basildon Service Center', "WIP":777, "CIP":12,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":45.5679, "lng":-73.2039, "title":'Beloeil Service Center', "WIP":890, "CIP":45,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":17.5931, "lng":78.4047, "title":'BHEL - GE Gas Turbine Services Pvt. Ltd', "WIP":2434, "CIP":456,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":42.9963, "lng":-78.7954, "title":'Buffalo Service Center', "WIP":5667, "CIP":78,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":43.3751, "lng":-79.7756, "title":'Burlington Service Center', "WIP":24356, "CIP":13,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":30.4793, "lng":-87.193, "title":'Charleston Service Center', "WIP":8989, "CIP":3,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":35.1304, "lng":-80.9046, "title":'Charlotte Service Center', "WIP":5657, "CIP":10,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":41.7844, "lng":-87.6024, "title":'Chicago Service Center', "WIP":6578, "CIP":7,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":32.7825, "lng":-96.7768, "title":'Dallas Service Center', "WIP":24, "CIP":1234,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":51.4648, "lng":0.1821, "title":'Dartford Service Center', "WIP":688, "CIP":789,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":39.6727, "lng":-104.9638, "title":'Denver Service Center', "WIP":2435, "CIP":98,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":53.5474, "lng":-113.5095, "title":'Edmonton Service Center', "WIP":4645, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":37.9625, "lng":-87.6785, "title":'Evansville Service Center', "WIP":56767, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":32.8454, "lng":-108.0781, "title":'Fierro Service Center', "WIP":1235654, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":54.5519, "lng":36.2851, "title":'GEPTEC Kaluga', "WIP":1234, "CIP":466,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":35.5999, "lng":-77.3616, "title":'Greenville Service Center', "WIP":124634, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":29.8919, "lng":-95.6397, "title":'Houston Service Center', "WIP":13435, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":47.1625, "lng":19.5033, "title":'Hungary Service Center', "WIP":8769, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":50.9172, "lng":6.6907, "title":'Keppel Service Center', "WIP":3543, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":50.8334, "lng":-1.3829, "title":'Langley Service Center', "WIP":32634, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":34.6475, "lng":-118.1456, "title":'Los Angeles Service Center', "WIP":465, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":26.2034, "lng":-98.23, "title":'McAllen Service Center', "WIP":4235, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":39.8808, "lng":116.4603, "title":'GEMTEC', "WIP":1234, "CIP":8878,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":30.0483, "lng":70.6334, "title":'MEPCO', "WIP":1234, "CIP":45654,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":44.9997, "lng":-93.2965, "title":'Minneapolis Service Center', "WIP":7878, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":51.5659, "lng":-0.1021, "title":'New Orleans Service Center', "WIP":54534, "CIP":123,"MajorFrame":"2F","MajorComp":"7C"},
+            	  	    	  {"lat":32.7869, "lng":-89.205, "title":'Philadelphia Service Center', "WIP":2234, "CIP":123,"MajorFrame":"2F","MajorComp":"3C"},
+            	  	    	  {"lat":40.45, "lng":-80.0147, "title":'Pittsburgh Service Center', "WIP":3434, "CIP":123,"MajorFrame":"2F","MajorComp":"7C"},
+            	  	    	  {"lat":38.2376, "lng":-76.1269, "title":'PT Gents', "WIP":1234, "CIP":768,"MajorFrame":"2F","MajorComp":"1C"},
+            	  	    	  {"lat":30.0519, "lng":31.2309, "title":'QHD Service Center', "WIP":890, "CIP":88,"MajorFrame":"2F","MajorComp":"5C"},
+            	  	    	  {"lat":22.5355, "lng":88.3442, "title":'Salt Lake City Service Center', "WIP":1564, "CIP":123,"MajorFrame":"2F","MajorComp":"6C"},
+            	  	    	  {"lat":53.3579, "lng":-6.2374, "title":'Stoney Creek Service Center', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"8C"},
+            	  	    	  {"lat":43.4846, "lng":-91.1906, "title":'GEESA', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"10C"},
+            	  	    	  {"lat":31.871, "lng":-110.9992, "title":'Tuscon Service Center', "WIP":1234, "CIP":123,"MajorFrame":"55F","MajorComp":"88C"},
+            	  	    	  {"lat":4.9015, "lng":6.9045, "title":'Nigeria Service Center', "WIP":1234, "CIP":123,"MajorFrame":"8F","MajorComp":"33C"},
+            	  	    	  {"lat":26.399, "lng":50.1419, "title":'MEELSA', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":14.1205, "lng":79.2055, "title":'PMT', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":42.3776, "lng":-83.2162, "title":'Field Service', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":29.9476, "lng":78.1063, "title":'Turbine Blading Ltd', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":44.8996, "lng":-68.6677, "title":'Bangor Service Center', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":42.8142, "lng":-73.9396, "title":'Schenectady Service Center', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":29.7604, "lng":-95.3698, "title":'Houston Oil & Gas Service Center', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
+            	  	    	  {"lat":50.8458, "lng":5.6872, "title":'Belfort Service Center', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"}
+            	  	    	  ];
+            	    }
+            	    
+                    for (var i = 0, length = json.length; i < length; i++) {
+                  	  var gmap = document.querySelector('google-map');
+                  	gmap.clear();
+                  	  var data = json[i];
+                  	  var marker = document.createElement('google-map-marker');
+                  	  marker.setAttribute('latitude', data.lat);
+                      marker.setAttribute('longitude', data.lng);
+                      marker.setAttribute('title', data.title);
+                      marker.innerHTML = '<div>'+
+                      '<div id="infoWindow">'+
+                      '</div>'+
+                      '<h1 id="firstHeading" class="profile-name" style="font-family:GE Inspira pitch;font-weight:bold;font-size:24px; !important"><img src="/images/maploc.jpg" style="height: 21px;"\> '+data.title+ '</h1>'+
+                      '<div id="bodyContent">'+
+                      '<label for="WIP" style="font-family:GE Inspira pitch;color:#75585A;font-weight:bold;font-size:14px; !important"><iron-icon icon=\"icons:hourglass-empty\" style=\"color: red;\"></iron-icon>WIP Count &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp : </label>' +
+                      '<a href="/jobpages?job=w" style="font-family:GE Inspira pitch;font-weight:bold;font-size:14px; !important">'+data.WIP+'</a> <br>'+
+                      '<label for="CIP" style="font-family:GE Inspira pitch;color:#75585A;font-weight:bold;font-size:14px; !important"><iron-icon icon=\"icons:hourglass-full\" style=\"color: green;\"></iron-icon>Completed Count &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp : </label>'+
+                      '<a href="/jobpages?job=c" style="font-family:GE Inspira pitch;font-weight:bold;font-size:14px; !important">'+data.CIP+'</a> <br>'+
+                      '<label for="MFrame" style="font-family:GE Inspira pitch;color:#75585A;font-weight:bold;font-size:14px; !important"><img src="/images/frame.jpg"\> Major Frame &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: </label>'+
+                      '<label for="MFrame1" style="font-family:GE Inspira pitch;color:#3e87e8;font-weight:bold;font-weight:bold;font-size:14px; !important">'+data.MajorFrame+'</label> <br>'+
+                      '<label for="MajorCom" style="font-family:GE Inspira pitch;color:#75585A;font-weight:bold;font-size:14px; !important"><img src="/images/wrench-icon-214x214.png"\>Major Component &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp : </label>'+
+                      '<label for="MajorCom1" style="font-family:GE Inspira pitch;color:#3e87e8;font-weight:bold;font-weight:bold;font-size:14px; !important">'+data.MajorComp+'</label> <br>'+
+                      '</div>'+
+                      '</div>';
+              Polymer.dom(gmap).appendChild(marker);
+                    }
+                    
+            
             //Tag string can be classification from contextDetails
             PredixViewService.getDecksByTags(newContext.classification) // gets all decks for this context
                 .then(function (decks) {
+                	console.log(decks);
                     $scope.decks = [];
 
                     if(decks && decks.length > 0) {
                         decks.forEach(function (deck) {
                             $scope.decks.push({name: deck.title, url: PredixViewService.getUrlForFetchingCardsForDeckId(deck.id)});
+                            console.log($scope.decks)
                         });
                         $scope.selectedDeckUrl = $scope.decks[0].url;
+                        console.log(selectedDeckUrl);
                     }
                 });
         };
-
+        $scope.getChildren = function (parent, options) {
+            return PredixAssetService.getAssetsByParentId(parent.id, options);
+        };
 
         $scope.handlers = {
             itemOpenHandler: $scope.openContext,
+            getChildren: $scope.getChildren,
             itemClickHandler: $scope.clickHandler
         };
     }]);
+	
 });

@@ -19,26 +19,14 @@
 </style>  
 
 
-<!--    
-Getting json object from backend on ajax call
- <core-ajax id="ajax_get_location"
-            auto
-            url="project_location.json"
-            params='{"idProject":"{{idProject}}"}'
-            on-core-response="{{locationLoaded}}"
-            handleAs="json"
-            response = "{{project_location}}">
-  </core-ajax> -->
   <dom-module id="px-context-browser1">
   <px-context-browser id="123"
         initial-contexts='{{initialContexts}}'
         handlers="ngScope:handlers"
-        opened-item-name="Select Context"
+        opened-item-name="Select Context1"
         selected-Item-Id="value"
         >
-                  <!--  <span><label for="WIP" style="padding-left: 701px;">Total Pending Jobs Count :</label>
-          <a href="/jobpages?job=w">4564565</a> <br> <label for="CIP" style="padding-left: 703px;">Total Completed Jobs Count :</label>
-          <a href="/jobpages?job=c">978979</a></span> -->
+
 	<px-deck-selector ng-bind-polymer decks="{{decks}}" selected-deck-url="{{selectedDeckUrl}}"></px-deck-selector>
 </px-context-browser>
 
@@ -47,63 +35,7 @@ Getting json object from backend on ajax call
  </google-map>
 
 <script>
-
-/* var selectedItem = document.querySelector('px-context-browser').selectedItemId;
-
-var result= parseInt(selectedItem);
-console.log(result); */
-/* Polymer(
-	    {
-	    	is: 'px-context-browser1',
-	    	properties: {
-	    		selectedItemId: {
-	    	          type: String,
-	    	          value: 'selectedItemId',
-	    	          reflectToAttribute: true
-	    	        }
-	    	}
-	    }); */
-
-	    
-      (function() {
-    	  var selectedItemIdVal;
-  	    jQuery('#123').on('click', function(){
-  	    	selectedItemIdVal = $("#123").attr("selected-Item-Id");
-  	    	//alert(selectedItemIdVal);
-	    	 });
-    
-  	    
-  	    if (selectedItemIdVal == "USPowerGen"){
-  	    	var json = 
-    	    	  [{"lat":33.5995, "lng":-84.5485, "title":'Atlanta Service Center', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
-    	    	   {"lat":32.7825, "lng":-96.7768, "title":'Dallas Service Center', "WIP":24, "CIP":1234,"MajorFrame":"2F","MajorComp":"2C"},
-    	    	   {"lat":14.1205, "lng":79.2055, "title":'PMT', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
-    	    	   {"lat":44.8996, "lng":-68.6677, "title":'Bangor Service Center', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
-    	    	   {"lat":42.8142, "lng":-73.9396, "title":'Schenectady Service Center', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
-    	    	   {"lat":29.7604, "lng":-95.3698, "title":'Houston Oil & Gas Service Center', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"}
-    	    	   ];
-  	    	
-  	    } else if(selectedItemIdVal == "Europe&Africa"){
-  	    	var json = 
-  	    	  [{"lat":51.5761, "lng":0.4887, "title":'Basildon Service Center', "WIP":777, "CIP":12,"MajorFrame":"2F","MajorComp":"2C"},
-  	    	   {"lat":51.4648, "lng":0.1821, "title":'Dartford Service Center', "WIP":688, "CIP":789,"MajorFrame":"2F","MajorComp":"2C"},
-  	    	   {"lat":47.1625, "lng":19.5033, "title":'Hungary Service Center', "WIP":8769, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
-  	    	   {"lat":29.9476, "lng":78.1063, "title":'Turbine Blading Ltd', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
-  	    	 	{"lat":50.8458, "lng":5.6872, "title":'Belfort Service Center', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"}
-  	    	   ];
-  	    	
-  	    }else if (selectedItemIdVal == "MiddleEast"){
-  	    	var json = 
-    	    	  [{"lat":26.399, "lng":50.1419, "title":'MEELSA', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"}
-    	    	   ];
-  	    } else if (selectedItemIdVal == "Asia"){
-  	    	var json = 
-    	    	  [{"lat":17.5931, "lng":78.4047, "title":'BHEL - GE Gas Turbine Services Pvt. Ltd', "WIP":2434, "CIP":456,"MajorFrame":"2F","MajorComp":"2C"},
-    	    	   {"lat":50.9172, "lng":6.6907, "title":'Keppel Service Center', "WIP":3543, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
-    	    	   {"lat":38.2376, "lng":-76.1269, "title":'PT Gents', "WIP":1234, "CIP":768,"MajorFrame":"2F","MajorComp":"1C"},
-    	    	   {"lat":43.4846, "lng":-91.1906, "title":'GEESA', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"10C"}
-    	    	   ];
-  	    } else {
+(function() {
   	    	var json = 
   	    	  [{"lat":33.5995, "lng":-84.5485, "title":'Atlanta Service Center', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
   	    	  {"lat":51.5761, "lng":0.4887, "title":'Basildon Service Center', "WIP":777, "CIP":12,"MajorFrame":"2F","MajorComp":"2C"},
@@ -150,8 +82,6 @@ console.log(result); */
   	    	  {"lat":29.7604, "lng":-95.3698, "title":'Houston Oil & Gas Service Center', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"},
   	    	  {"lat":50.8458, "lng":5.6872, "title":'Belfort Service Center', "WIP":1234, "CIP":123,"MajorFrame":"2F","MajorComp":"2C"}
   	    	  ];
-  	    }
-  	    
 
   	  for (var i = 0, length = json.length; i < length; i++) {
     	  var gmap = document.querySelector('google-map');
