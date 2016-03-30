@@ -29,7 +29,7 @@ define(['angular', 'angular-ui-router'], function(angular) {
                     }]
                 }
             })
-            .state('home', {
+             .state('home', {
                // parent: 'secure',
                 url: '/home',
                 templateUrl: 'views/dashboards.html',
@@ -37,47 +37,17 @@ define(['angular', 'angular-ui-router'], function(angular) {
             })
             .state('myProfile', {
                 url: '/myProfile',
-                templateUrl: 'views/myProfile.html',
+                templateUrl: 'views/home-page.html',
             	controller: 'HomePageCtrl'
-            })
-             .state('logTicket', {
-                url: '/logTicket',
-                templateUrl: 'views/ghj.html'
-            })
-             .state('help', {
-                url: '/help',
-                templateUrl: 'views/blank-page.html'
-            })
-             .state('preferences', {
-                url: '/preferences',
-                templateUrl: 'views/blank-page.html'
-            })
-             .state('scorecard', {
-                url: '/scorecard',
-                templateUrl: 'views/blank-page.html'
-            })
-             .state('logOut', {
-                url: '/logOut',
-                templateUrl: 'views/blank-page.html'
-            })
-            .state('blanksubpage', {
-                url: '/blanksubpage',
-                templateUrl: 'views/blank-sub-page.html'
             })
              .state('jobpages', {
                 url: '/jobpages',
                 templateUrl: 'views/wip-cip-job-pages.html'
             })
-            .state('addJob', {
-                url: '/addJob',
-                templateUrl: 'views/blank-page.html'
-            })
-            ;
 
 
         $urlRouterProvider.otherwise(function ($injector) {
             var $state = $injector.get('$state');
-            /*-- home navigation default selected marked. RM329956--*/
             document.querySelector('px-app-nav').markSelected('/home');
             $state.go('home');
         });

@@ -1,6 +1,7 @@
-
+<link rel="import" href="../bower_components/px-data-table/px-data-table.html"/>
+<link rel="import" href="../bower_components/polymer/polymer.html"/>
  <style>
-       .tab-page {
+      .tab-page {
         margin: 5px;
       }
       
@@ -27,100 +28,99 @@
 <div>
 <section>
 <p style="margin-top: 3px;margin-bottom: 0px;text-align: center;font-size:20px;">Work In Progress Jobs</p>
-<px-data-table id="resultTable"  filterable selectable striped table-data="{{json}}">
+<px-data-table id="resultTable" selected-rows="{{mySelectedRows}}" filterable selectable striped table-data="{{wipJson}}">
 <px-data-table-column name="Action"
 type="html"
 label="Action"
 sortable
 searchable
 required
-searchplaceholder="Type to filter date"
 default=""
-filter-function-name="filterWholeWord"
+filter-function-name="myTableCustomFunctions.filterWholeWord"
 sort-function-name="sortColumn">
 </px-data-table-column>
 
 <px-data-table-column name="jobNumber"
 type="html"
-label="Job#"
+label="Job #"
+filterable
 sortable
 searchable
 required
-searchplaceholder="Type to filter date"
 default=""
-filter-function-name="filterWholeWord"
+filter-function-name="myTableCustomFunctions.filterWholeWord"
 sort-function-name="sortColumn">
 </px-data-table-column>
  
 <px-data-table-column name="Component"
 type="html"
 label="Component"
+filterable
 sortable
 searchable
 required
-searchplaceholder="Type to filter date"
 default=""
-filter-function-name="filterWholeWord"
+filter-function-name="myTableCustomFunctions.filterWholeWord"
 sort-function-name="sortColumn">
 </px-data-table-column>
 
 <px-data-table-column name="Customer"
 type="html"
 label="Customer"
+filterable
 sortable
 searchable
 required
-searchplaceholder="Type to filter date"
 default=""
-filter-function-name="filterWholeWord"
+filter-function-name="myTableCustomFunctions.filterWholeWord"
 sort-function-name="sortColumn">
 </px-data-table-column>
  
 <px-data-table-column name="dateReceived"
 type="html"
 label="DateReceived"
+filterable
 sortable
 searchable
 required
-searchplaceholder="Type to filter date"
 default=""
-filter-function-name="filterWholeWord"
+filter-function-name="myTableCustomFunctions.filterWholeWord"
 sort-function-name="sortColumn">
 </px-data-table-column>
 
 <px-data-table-column name="conditionReportDate"
 type="html"
 label="Condition Report Date"
+filterable
 sortable
 searchable
 required
-searchplaceholder="Type to filter date"
 default=""
-filter-function-name="filterWholeWord"
+filter-function-name="myTableCustomFunctions.filterWholeWord"
 sort-function-name="sortColumn">
 </px-data-table-column>
 
 <px-data-table-column name="dateShipped"
 type="html"
 label="DateShipped"
+filterable
 sortable
 searchable
 required
-searchplaceholder="Type to filter date"
 default=""
-filter-function-name="filterWholeWord"
+filter-function-name="myTableCustomFunctions.filterWholeWord"
 sort-function-name="sortColumn">
 </px-data-table-column>
 
 <px-data-table-column name="finalReportSubmission"
 type="html"
 label="Final Report Date"
+filterable
 sortable
 searchable
 required
-searchplaceholder="Type to filter date"
 default=""
-filter-function-name="filterWholeWord"
+filter-function-name="myTableCustomFunctions.filterWholeWord"
 sort-function-name="sortColumn">
 </px-data-table-column>
 </px-data-table>
@@ -131,100 +131,99 @@ sort-function-name="sortColumn">
 <section>
 
 <p style="margin-top: 3px;margin-bottom: 0px;text-align: center;font-size:20px;">Completed Jobs</p>
-<px-data-table id="resultTable"  filterable selectable striped table-data="{{json1}}">
+<px-data-table id="resultTable" filterable selectable striped table-data="{{cmpJson}}">
 <px-data-table-column name="Action"
 type="html"
 label="Action"
 sortable
 searchable
 required
-searchplaceholder="Type to filter date"
 default=""
-filter-function-name="filterWholeWord"
+filter-function-name="myTableCustomFunctions.filterWholeWord"
 sort-function-name="sortColumn">
 </px-data-table-column>
 
 <px-data-table-column name="jobNumber"
 type="html"
-label="Job#"
+label="Job #"
+filterable
 sortable
 searchable
 required
-searchplaceholder="Type to filter date"
 default=""
-filter-function-name="filterWholeWord"
+filter-function-name="myTableCustomFunctions.filterWholeWord"
 sort-function-name="sortColumn">
 </px-data-table-column>
 
 <px-data-table-column name="Component"
 type="html"
 label="Component"
+filterable
 sortable
 searchable
 required
-searchplaceholder="Type to filter date"
 default=""
-filter-function-name="filterWholeWord"
+filter-function-name="myTableCustomFunctions.filterWholeWord"
 sort-function-name="sortColumn">
 </px-data-table-column>
  
 <px-data-table-column name="Customer"
 type="html"
 label="Customer"
+filterable
 sortable
 searchable
 required
-searchplaceholder="Type to filter date"
 default=""
-filter-function-name="filterWholeWord"
+filter-function-name="myTableCustomFunctions.filterWholeWord"
 sort-function-name="sortColumn">
 </px-data-table-column>
  
 <px-data-table-column name="dateReceived"
 type="html"
 label="DateReceived"
+filterable
 sortable
 searchable
 required
-searchplaceholder="Type to filter date"
 default=""
-filter-function-name="filterWholeWord"
+filter-function-name="myTableCustomFunctions.filterWholeWord"
 sort-function-name="sortColumn">
 </px-data-table-column>
 
 <px-data-table-column name="conditionReportDate"
 type="html"
 label="Condition Report Date"
+filterable
 sortable
 searchable
 required
-searchplaceholder="Type to filter date"
 default=""
-filter-function-name="filterWholeWord"
+filter-function-name="myTableCustomFunctions.filterWholeWord"
 sort-function-name="sortColumn">
 </px-data-table-column>
 
 <px-data-table-column name="dateShipped"
 type="html"
 label="Date Shipped"
+filterable
 sortable
 searchable
 required
-searchplaceholder="Type to filter date"
 default=""
-filter-function-name="filterWholeWord"
+filter-function-name="myTableCustomFunctions.filterWholeWord"
 sort-function-name="sortColumn">
 </px-data-table-column>
 
 <px-data-table-column name="finalReportSubmission"
 type="html"
 label="Final Report Date"
+filterable
 sortable
 searchable
 required
-searchplaceholder="Type to filter date"
 default=""
-filter-function-name="filterWholeWord"
+filter-function-name="myTableCustomFunctions.filterWholeWord"
 sort-function-name="sortColumn">
 </px-data-table-column>
 </px-data-table>
@@ -234,18 +233,17 @@ sort-function-name="sortColumn">
 </section>
 </px-card>
 </template>
+</dom-module>
+
 
   <script>
     Polymer({
       is: 'ter-form-card',
       behaviors: [px.card],
-      properties: {
-      selected: {
-      type: String,
-      reflect: true
-        }
-      },
+    
       ready: function() {
+          this.cbrResultsService();
+
         var tabs = document.querySelector('#tab-set');
         var QueryString= GetQueryStringByParameter('job'); 
         if(QueryString == "w"){
@@ -264,14 +262,12 @@ sort-function-name="sortColumn">
             return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
         }
         
-        this.cbrResultsService();
       },
       
       
   	cbrResultsService: function() {
-		var resp = this;
 		var serviceUrl = "";
-		var json = [{"Action":"<a href=\"javascript:;\" onclick=\"jobCopy()\"><iron-icon icon=\"icons:content-copy\" style=\"color: green;\" width=\" 10\"height= \"10\"></iron-icon></a><a href=\"javascript:;\"onclick=\"jobDelete()\"><iron-icon icon=\"icons:delete\" style=\"color: lightsalmon;\" width=\"10\" height=\"10\"></iron-icon></a>","jobNumber":'<a href="#">00078</a>', "Component":"Stage 1 Nozzle","Customer":"SAN DIEGO GAS & ELECTRIC CO", "dateReceived":"10-Mar-2014","conditionReportDate":"09-Jun-2014","dateShipped":"05-Dec-2014","finalReportSubmission":"25-Dec-2014","colorCode":"#005CB9"},
+		var wipJson = [{"Action":"<a href=\"javascript:;\" onclick=\"jobCopy()\"><iron-icon icon=\"icons:content-copy\" style=\"color: green;\" width=\" 10\"height= \"10\"></iron-icon></a><a href=\"javascript:;\"onclick=\"jobDelete()\"><iron-icon icon=\"icons:delete\" style=\"color: lightsalmon;\" width=\"10\" height=\"10\"></iron-icon></a>","jobNumber":'<a href="#">00078</a>', "Component":"Stage 1 Nozzle","Customer":"SAN DIEGO GAS & ELECTRIC CO", "dateReceived":"10-Mar-2014","conditionReportDate":"09-Jun-2014","dateShipped":"05-Dec-2014","finalReportSubmission":"25-Dec-2014","colorCode":"#005CB9"},
 		            {"Action":"<a href=\"javascript:;\" onclick=\"jobCopy()\"><iron-icon icon=\"icons:content-copy\" style=\"color: green;\" width=\"10\" height=\"10\"></iron-icon></a><a href=\"javascript:;\" onclick=\"jobDelete()\"><iron-icon icon=\"icons:delete\" style=\"color: lightsalmon;\" width=\"10\" height=\"10\"></iron-icon></a>","jobNumber":'<a href="#">00084</a>', "Component":"Stage 1 Nozzle","Customer":"CLP HOLDINGS LIMITED", "dateReceived":"18-Jul-2014","conditionReportDate":"18-Aug-2014","dateShipped":"12-Oct-2014","finalReportSubmission":"13-Dec-2014","colorCode":"#005CB9"},
 		            {"Action":"<a href=\"javascript:;\" onclick=\"jobCopy()\"><iron-icon icon=\"icons:content-copy\" style=\"color: green;\" width=\"10\" height=\"10\"></iron-icon></a><a href=\"javascript:;\" onclick=\"jobDelete()\"><iron-icon icon=\"icons:delete\" style=\"color: lightsalmon;\" width=\"10\" height=\"10\"></iron-icon></a>","jobNumber":'<a href="#">0032</a>', "Component":"Stage 2 Turbine Blade","Customer":"Northern States Power Company","dateReceived":"21-Jun-2012","conditionReportDate":"05-Jul-2012","dateShipped":"06-Sep-2014","finalReportSubmission":"17-Oct-2014","colorCode":"#005CB9"},
 		            {"Action":"<a href=\"javascript:;\" onclick=\"jobCopy()\"><iron-icon icon=\"icons:content-copy\" style=\"color: green;\" width=\"10\" height=\"10\"></iron-icon></a><a href=\"javascript:;\" onclick=\"jobDelete()\"><iron-icon icon=\"icons:delete\" style=\"color: lightsalmon;\" width=\"10\" height=\"10\"></iron-icon></a>","jobNumber":'<a href="#">0061</a>', "Component":"Stage 1 Turbine Blade","Customer":"Sample", "dateReceived":"17-Jul-2012","conditionReportDate":"23-Aug-2012","dateShipped":"07-Nov-2014","finalReportSubmission":"22-Dec-2014","colorCode":"#005CB9"},
@@ -287,7 +283,7 @@ sort-function-name="sortColumn">
 		            {"Action":"<a href=\"javascript:;\" onclick=\"jobCopy()\"><iron-icon icon=\"icons:content-copy\" style=\"color: green;\" width=\"10\" height=\"10\"></iron-icon></a><a href=\"javascript:;\" onclick=\"jobDelete()\"><iron-icon icon=\"icons:delete\" style=\"color: lightsalmon;\" width=\"10\" height=\"10\"></iron-icon></a>","jobNumber":'<a href="#">10184</a>', "Component":"Valve","Customer":"GEORGIA POWER COMPANY", "dateReceived":"10-Oct-2012","conditionReportDate":"07-Nov-2012","dateShipped":"10-Jan-2014","finalReportSubmission":"27-Mar-2014","colorCode":"#005CB9"}];
 
 		
-		            var json1 = [{"Action":"<a href=\"javascript:;\" onclick=\"jobCopy()\"><iron-icon icon=\"icons:content-copy\" style=\"color: green;\" width=\" 10\"height= \"10\"></iron-icon></a><a href=\"javascript:;\"onclick=\"jobDelete()\"><iron-icon icon=\"icons:delete\" style=\"color: lightsalmon;\" width=\"10\" height=\"10\"></iron-icon></a>","jobNumber":'<a href="#">40100</a>', "Component":"Stage 1 Shroud", "Customer":"ENDESA SA", "dateReceived":"31-Jul-2015 ", "conditionReportDate":"01-Sep-2015", "dateShipped":"05-Dec-2015","finalReportSubmission":"18-Jan-2016","colorCode":"#005CB9"},
+		            var cmpJson = [{"Action":"<a href=\"javascript:;\" onclick=\"jobCopy()\"><iron-icon icon=\"icons:content-copy\" style=\"color: green;\" width=\" 10\"height= \"10\"></iron-icon></a><a href=\"javascript:;\"onclick=\"jobDelete()\"><iron-icon icon=\"icons:delete\" style=\"color: lightsalmon;\" width=\"10\" height=\"10\"></iron-icon></a>","jobNumber":'<a href="#">40100</a>', "Component":"Stage 1 Shroud", "Customer":"ENDESA SA", "dateReceived":"31-Jul-2015 ", "conditionReportDate":"01-Sep-2015", "dateShipped":"05-Dec-2015","finalReportSubmission":"18-Jan-2016","colorCode":"#005CB9"},
 		            {"Action":"<a href=\"javascript:;\" onclick=\"jobCopy()\"><iron-icon icon=\"icons:content-copy\" style=\"color: green;\" width=\"10\" height=\"10\"></iron-icon></a><a href=\"javascript:;\" onclick=\"jobDelete()\"><iron-icon icon=\"icons:delete\" style=\"color: lightsalmon;\" width=\"10\" height=\"10\"></iron-icon></a>","jobNumber":'<a href="#">42557</a>', "Component":"Stage 1 Nozzle", "Customer":"SEMBCORP INDUSTRIES LTD", "dateReceived":"27-Oct-2015", "conditionReportDate":"10-Nov-2015", "dateShipped":"12-Dec-2015","finalReportSubmission":"18-Jan-2016","colorCode":"#005CB9"},
 		            {"Action":"<a href=\"javascript:;\" onclick=\"jobCopy()\"><iron-icon icon=\"icons:content-copy\" style=\"color: green;\" width=\"10\" height=\"10\"></iron-icon></a><a href=\"javascript:;\" onclick=\"jobDelete()\"><iron-icon icon=\"icons:delete\" style=\"color: lightsalmon;\" width=\"10\" height=\"10\"></iron-icon></a>","jobNumber":'<a href="#">42729</a>', "Component":"Stage 1 Turbine Blade", "Customer":"HITACHI ZOSEN CORPORATION", "dateReceived":"24-Jun-2015 ", "conditionReportDate":"30-Jun-2015", "dateShipped":"06-Jul-2015","finalReportSubmission":"18-Jan-2016","colorCode":"#005CB9"},
 		            {"Action":"<a href=\"javascript:;\" onclick=\"jobCopy()\"><iron-icon icon=\"icons:content-copy\" style=\"color: green;\" width=\"10\" height=\"10\"></iron-icon></a><a href=\"javascript:;\" onclick=\"jobDelete()\"><iron-icon icon=\"icons:delete\" style=\"color: lightsalmon;\" width=\"10\" height=\"10\"></iron-icon></a>","jobNumber":'<a href="#">43996</a>', "Component":"Liner", "Customer":"MASS GLOBAL INVESTMENT CO", "dateReceived":"05-Aug-2015", "conditionReportDate":"03-Sep-2015", "dateShipped":"07-Sep-2015","finalReportSubmission":"18-Jan-2016","colorCode":"#005CB9"},
@@ -304,9 +300,8 @@ sort-function-name="sortColumn">
 
 		            var self = this;
 		            this.getData(serviceUrl).then(function(data) {
-		            self.data= data.response;
-		            self.json = json;
-		            self.json1 = json1;
+		            self.wipJson = wipJson;
+		            self.cmpJson = cmpJson;
 
 			});
 			}
@@ -319,11 +314,10 @@ sort-function-name="sortColumn">
     function jobCopy(){
     	alert('Job cloned');
     }
-    
+
     
   </script>
-</dom-module>
 
 <body>
-<ter-form-card id="ter-form-card"></ter-form-card>
+<ter-form-card id="ter-form-card1"></ter-form-card>
 </body>

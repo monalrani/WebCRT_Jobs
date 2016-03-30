@@ -39,18 +39,13 @@ define([
             name: 'Predix Seed',
             session: {},
             tabs: [
-                {icon: 'fa-home', state: 'home', label: 'HOME'},
-                {icon: 'fa-briefcase', state: 'myProfile', label: 'MY PROFILE'
-                	/*subitems: [
-                    {state: 'blanksubpage', label: 'Blank Sub Page'}
-                ]*/
-                },
-                {icon: 'fa-plus-square', state: 'addJob', label: 'ADD A JOB'},
-                {icon: 'fa-ticket', state: 'logTicket', label: 'LOG A TICKET'},
-                {icon: 'fa-thumbs-o-down', state: 'help', label: 'HELP'},
-                {icon: 'fa-asterisk', state: 'preferences', label: 'PREFERENCES'},
-                {icon: 'fa-credit-card', state: 'scorecard', label: 'SCORECARD'},
-                {icon: 'fa-sign-out', state: 'logOut', label: 'LOGOUT'}
+                   {icon: 'fa-home', state: 'home', label: 'HOME'},
+                   {icon: 'fa-briefcase', state: 'myProfile', label: 'MY PROFILE'
+                   	/*subitems: [
+                       {state: 'blanksubpage', label: 'Blank Sub Page'}
+                   ]*/
+                   }
+                
             ]
         };
 
@@ -68,7 +63,6 @@ define([
             else {
                 // unexpected error
             }
-           
         });
     }]);
 

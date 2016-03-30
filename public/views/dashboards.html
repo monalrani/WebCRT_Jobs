@@ -19,18 +19,16 @@
 </style>  
 
 
-  <dom-module id="px-context-browser1">
-  <px-context-browser id="123"
-        initial-contexts='{{initialContexts}}'
+<px-context-browser
+        browser-context='{{initialContexts}}'
         handlers="ngScope:handlers"
-        opened-item-name="Select Context1"
-        selected-Item-Id="value"
-        >
-
-	<px-deck-selector ng-bind-polymer decks="{{decks}}" selected-deck-url="{{selectedDeckUrl}}"></px-deck-selector>
+        opened-item-name="{{initialContextName}}"
+        show-chevron="true">
+	<px-deck-selector ng-bind-polymer decks="{{decks}}" selected-deck="{{selectedDeck}}" ></px-deck-selector>
 </px-context-browser>
 
-</dom-module>
+<px-dashboard view-service-base-url="{{viewServiceBaseUrl}}" selected-deck-id="{{selectedDeck.id}}" context="{{context}}"></px-dashboard>
+
   <google-map latitude="29.7267" longitude="-0.84265" zoom="6" fit-to-markers>
  </google-map>
 
